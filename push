@@ -1,0 +1,13 @@
+Vagrant.configure(2) do |config|
+  config.vm.box = "centos/7"
+  config.vm.boot_timeout=600
+  config.landrush.enabled = true
+ 
+  #config.vm.define "mstr" do |mstr|
+    mstr.vm.host_name = "mstr.devopshunter.com"
+    mstr.vm.network "private_network", ip: "192.168.33.100"
+    mstr.vm.provider "virtualbox" do |vb|
+      vb.cpus = "2"
+      vb.memory = "3070"
+    end
+  end
