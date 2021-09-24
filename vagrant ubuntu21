@@ -1,0 +1,28 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-21.04"
+  config.vm.define "mstr" do |mstr|
+  mstr.vm.host_name = "mstr.devopshunter.com"
+  mstr.vm.network "private_network", ip: "192.168.33.100"
+  mstr.vm.provider "virtualbox" do |vb|
+  vb.cpus = "1"
+  vb.memory = "2048"
+  end
+ end
+ config.vm.define "node1" do |node1|
+  node1.vm.host_name = "node1.devopshunter.com"
+  node1.vm.network "private_network", ip: "192.168.33.110"
+  node1.vm.provider "virtualbox" do |vb|
+  vb.cpus = "1"
+  vb.memory = "1024"
+  end
+ end
+ config.vm.define "node2" do |node2|
+  node2.vm.host_name = "node2.devopshunter.com"
+  node2.vm.network "private_network", ip: "192.168.33.120"
+  node2.vm.provider "virtualbox" do |vb|
+  vb.cpus = "1"
+  vb.memory = "1024"
+  end
+ end
+end 
+
